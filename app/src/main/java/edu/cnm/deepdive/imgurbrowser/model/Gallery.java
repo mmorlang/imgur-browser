@@ -13,7 +13,7 @@ public class Gallery {
  private String description;
 
  private long datetime;
- 
+
   @Expose
  @SerializedName("images_count")
  private int imagesCount;
