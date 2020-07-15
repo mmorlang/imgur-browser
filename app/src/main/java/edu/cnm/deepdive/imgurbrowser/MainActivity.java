@@ -16,16 +16,5 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-
-    listViewModel = new ViewModelProvider(this)
-        .get(ListViewModel.class);
-    getLifecycle().addObserver(listViewModel);
-    listViewModel.getSearchResult().observe(this, new Observer<Search>() {
-      @Override
-      public void onChanged(Search search) {
-        listViewModel.loadData();
-      }
-    });
-
   }
 }

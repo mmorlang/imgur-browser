@@ -22,8 +22,10 @@
     android:layout_height="wrap_content"
     app:layout_constraintStart_toEndOf="@id/gallery_search_spinner"
     app:layout_constraintTop_toTopOf="parent"
-    android:layout_marginLeft="8dp"
+    android:layout_marginLeft="@dimen/basic_margin"
+    android:layout_marginTop="@dimen/basic_margin"
     android:text="Image Title"
+    style="@style/TitleText"
     android:textColor="@android:color/black"
     />
 
@@ -34,8 +36,8 @@
     app:layout_constraintStart_toEndOf="@id/gallery_search_spinner"
     app:layout_constraintTop_toBottomOf="@id/title"
     android:text="Image Description"
-    android:layout_marginLeft="8dp"
-    android:layout_marginTop="8dp"
-    android:textColor="@android:color/black"
+    style="@style/Description"
+    android:layout_marginLeft="@dimen/basic_margin"
+    android:layout_marginTop="@dimen/basic_margin"
     />
 </androidx.constraintlayout.widget.ConstraintLayout>

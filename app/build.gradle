@@ -19,11 +19,11 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField"String", "BASE_URL",
-        getProperty("$projectDir/../../../services/imgur.properties", "base_url")
+        buildConfigField "String", "BASE_URL",
+                getProperty("$projectDir/../../../services/imgur.properties", "base_url")
 
         buildConfigField "String", "CLIENT_ID",
-        getProperty("$projectDir/../../../services/imgur.properties", "client_id")
+                getProperty("$projectDir/../../../services/imgur.properties", "client_id")
     }
 
     buildTypes {
@@ -74,4 +74,6 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'androidx.navigation:navigation-fragment:2.3.0'
+    implementation 'androidx.navigation:navigation-ui:2.3.0'
 }
