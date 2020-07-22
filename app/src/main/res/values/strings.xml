@@ -7,4 +7,12 @@
   <string name="image_description">image_description</string>
   <string name="image_url">image_url</string>
   <string name="image_title">image_title</string>
+  <string name="image_datetime">datetime</string>
+  <string name="image_id">id</string>
+  <string name="image_detail_description">image_description</string>
+  <string name="image_type">type</string>
+  <string name="image_width">width</string>
+  <string name="image_height">height</string>
+  <string name="image_views">views</string>
+  <string name="image_bandwidth">bandwidth</string>
 </resources>
