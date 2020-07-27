@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import edu.cnm.deepdive.imgurbrowser.BuildConfig;
 import edu.cnm.deepdive.imgurbrowser.model.Gallery;
 import io.reactivex.Single;
+import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import okhttp3.logging.HttpLoggingInterceptor.Level;
@@ -18,7 +19,7 @@ import retrofit2.http.Query;
 public interface ImgurService {
 
   @GET("gallery/search")
-  Single<Gallery.Search> getSearchResult (
+  Single<Gallery.Search> getSearchResult(
       @Header("Authorization") String authHeader, @Query("q") String subject);
 
   static ImgurService getInstance() {
@@ -29,15 +30,15 @@ public interface ImgurService {
 
     private static final ImgurService INSTANCE;
 
-    static  {
-
+    static {
       Gson gson = new GsonBuilder()
-      .excludeFieldsWithoutExposeAnnotation()
-      .create();
+          .excludeFieldsWithoutExposeAnnotation()
+          .create();
       HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
       interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
       OkHttpClient client = new OkHttpClient.Builder()
           .addInterceptor(interceptor)
+          .readTimeout(30, TimeUnit.SECONDS)
           .build();
       Retrofit retrofit = new Retrofit.Builder()
           .addConverterFactory(GsonConverterFactory.create(gson))
@@ -46,8 +47,8 @@ public interface ImgurService {
           .baseUrl(BuildConfig.BASE_URL)
           .build();
       INSTANCE = retrofit.create(ImgurService.class);
-
     }
 
   }
+
 }
